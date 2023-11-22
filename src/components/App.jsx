@@ -16,7 +16,7 @@ export const App = () => {
               <NavLink to='/movies'>Movies</NavLink>
             </li>
             <li>
-              <NavLink to='movies/:movieId'>MoviesDetails</NavLink>
+              <NavLink to='/movies/:'>MoviesDetails</NavLink>
             </li>
           </ul>
         </nav>
