@@ -4,6 +4,8 @@ import Movies from '../pages/Movies/Movies'
 import MoviesDetails from "../pages/MoviesDetails/MoviesDetails";
 import Cast from '../components/Cast/Cast'
 import Reviews from '../components/Reviews/Reviews';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   return (
@@ -31,6 +33,7 @@ export const App = () => {
           <Route path="reviews" element={<Reviews />} />
         </Route>
       </Routes>
+      <ToastContainer autoClose={1000} theme="light"/>
     </div>
   );
 };
