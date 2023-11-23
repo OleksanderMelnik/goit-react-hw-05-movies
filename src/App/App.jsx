@@ -1,7 +1,9 @@
 import { NavLink, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/HomePage";
-import Movies from "./pages/Movies/MoviesPage";
-import MoviesDetails from "./pages/MoviesDetails/MoviesDetailsPage";
+import Home from "../pages/Home/Home";
+import Movies from '../pages/Movies/Movies'
+import MoviesDetails from "../pages/MoviesDetails/MoviesDetails";
+import Cast from '../components/Cast/Cast'
+import Reviews from '../components/Reviews/Reviews';
 
 export const App = () => {
   return (
@@ -16,7 +18,7 @@ export const App = () => {
               <NavLink to='/movies'>Movies</NavLink>
             </li>
             <li>
-              <NavLink to='/movies/:'>MoviesDetails</NavLink>
+              <NavLink to='/movies/:movieId'>MoviesDetails</NavLink>
             </li>
           </ul>
         </nav>
@@ -24,7 +26,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<MoviesDetails />} />
+        <Route path="/movies/:movieId" element={<MoviesDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
       </Routes>
     </div>
   );
