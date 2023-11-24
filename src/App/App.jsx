@@ -19,9 +19,6 @@ export const App = () => {
             <li>
               <NavLink to='/movies'>Movies</NavLink>
             </li>
-            <li>
-              <NavLink to='/movies/:movieId'>MoviesDetails</NavLink>
-            </li>
           </ul>
         </nav>
       </header>
