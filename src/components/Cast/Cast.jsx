@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastMovie } from 'App/api';
-import { ListItem, StyledList } from '../Cast/Cast.styled';
+import { ListItem, StyledList } from 'components/Cast/Cast.styled';
 
 const POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 const placeholder = 'https://via.placeholder.com/182x273';
