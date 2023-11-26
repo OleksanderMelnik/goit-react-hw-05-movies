@@ -11,7 +11,7 @@ export default function Home() {
 
     return (
     <>
-    <div>Home</div>
+    <h1>Trending today</h1>
     <MoviesList movies={movies} />
     </>
     )

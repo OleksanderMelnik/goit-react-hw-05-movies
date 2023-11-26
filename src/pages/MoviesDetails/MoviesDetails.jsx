@@ -1,14 +1,16 @@
-import { NavLink, Outlet, useParams } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { NavLink, Outlet, useParams, useLocation, Link } from "react-router-dom";
+import { useEffect, useState, Suspense } from 'react';
 import {getMovieById} from 'App/api';
 
+
 const POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
-const PLACEHOLDER = 'https://via.placeholder.com/182x273';
+const placeholder = 'https://via.placeholder.com/182x273';
 
 export default function MoviesDetails() {
   const {movieId} = useParams();
   const [movie, setMovie] = useState('');
-
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/movies';
 
   useEffect(() => {
     const fetchMovieById = async () => {
@@ -23,8 +25,9 @@ export default function MoviesDetails() {
   }, [movieId]);
     return (
     <>
+        <Link to={backLinkHref}>Go back</Link>
         <div>
-          <img src={`${movie.poster_path? POSTER_URL + movie.poster_path : PLACEHOLDER + '?text=' + movie.original_title}`}
+          <img src={`${movie.poster_path? POSTER_URL + movie.poster_path : placeholder + '?text=' + movie.original_title}`}
            alt={movie.original_title} />
         </div>
         <h1>{movie.original_title}</h1>
@@ -40,13 +43,16 @@ export default function MoviesDetails() {
         <h3>Additional information</h3>
         <ul>
             <li>
-              <NavLink to='cast'>cast</NavLink>
+              <NavLink to='cast' state={location.state}>cast</NavLink>
             </li>
             <li>
-              <NavLink to='reviews'>reviews</NavLink>
+              <NavLink to='reviews' state={location.state}>reviews</NavLink>
             </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<div>LOADING PAGE...</div>}> 
+          <Outlet />
+        </Suspense>
+        
     </>   
     )   
 }

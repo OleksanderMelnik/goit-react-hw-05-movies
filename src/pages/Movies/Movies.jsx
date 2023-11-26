@@ -8,6 +8,7 @@ export default function Movies() {
 
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
+   
 
     useEffect(() => {
         const currentQuery = searchParams.get('query');
@@ -17,8 +18,8 @@ export default function Movies() {
           try {
             const searchMovies = await getSearchMovies(currentQuery);
             setMovies(searchMovies);
-          } catch (e) {
-            console.log(e);
+          } catch (error) {
+            console.log(error);
           }
         };
         fetchSearchMovie();
@@ -26,9 +27,8 @@ export default function Movies() {
 
     return (
     <>
-    <div>Movies</div>
     <Form setSearchParams={setSearchParams} />
-    <MoviesList movies={movies} />
+    {movies.length> 0 && <MoviesList movies={movies} />}
     </>
     )
 }

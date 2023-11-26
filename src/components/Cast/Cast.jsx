@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getCastMovie } from 'App/api';
 
 const POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
-const PLACEHOLDER = 'https://via.placeholder.com/182x273';
+const placeholder = 'https://via.placeholder.com/182x273';
 
 export default function Cast() {
 
@@ -29,7 +29,7 @@ export default function Cast() {
             {cast.map(({ id, profile_path, original_name, character }) => (
               <li key={id}>
                 <img
-                  src={`${profile_path? POSTER_URL + profile_path: PLACEHOLDER + '?text=' + original_name}`}
+                  src={`${profile_path? POSTER_URL + profile_path: placeholder + '?text=' + original_name}`}
                   alt={original_name}
                 />
                 <p>
