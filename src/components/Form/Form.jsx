@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { Input, Button, FormSearch } from '../Form/Form.styled';
+import { Input, Button, FormSearch } from 'components/Form/Form.styled';
 
 
 export const Form = ({ setSearchParams }) => {

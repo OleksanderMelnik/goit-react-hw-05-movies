@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useParams, useLocation, Link } from "react-router-dom";
 import { useEffect, useState, Suspense } from 'react';
 import {getMovieById} from 'App/api';
-import { FilmWrapper, StyledList, ListItem, FilmImg, FilmTitle, FilmDescr, GoBackLink, FilmSubTitle, StyledListDescr } from '../MoviesDetails/MoviesDetails.styled'
+import { FilmWrapper, StyledList, ListItem, FilmImg, FilmTitle, FilmDescr, GoBackLink, FilmSubTitle, StyledListDescr } from 'components/MoviesList/MoviesList.styled';
 
 const POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 const placeholder = 'https://via.placeholder.com/182x273';

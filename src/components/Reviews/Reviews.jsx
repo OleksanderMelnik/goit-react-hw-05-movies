@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviewsMovie } from 'App/api';
-import { ListItem, StyledList, ReviewsDescr } from '../Reviews/Reviews.styled';
+import { ListItem, StyledList, ReviewsDescr } from 'components/Reviews/Reviews.styled';
 
 export default function Reviews() {
     

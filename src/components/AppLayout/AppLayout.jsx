@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Outlet, NavLink } from "react-router-dom";
-import { Container, NavItem, NavList, Navigation, Header } from '../AppLayout/AppLayout.styled';
+import { Container, NavItem, NavList, Navigation, Header } from 'components/AppLayout/AppLayout.styled';
 
 export default function AppLayout () {
     return (
