@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-
+import { Input, Button, FormSearch } from '../Form/Form.styled';
 
 
 export const Form = ({ setSearchParams }) => {
@@ -26,17 +26,20 @@ export const Form = ({ setSearchParams }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search movie"
-        autoFocus
-        value={query}
-        onChange={handleSearchParams}
-      />
-      <button type="submit">
-        Search
-      </button>
-    </form>
+    <>
+      <FormSearch onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          placeholder="Search movie"
+          autoFocus
+          value={query}
+          onChange={handleSearchParams}
+        />
+        <Button type="submit">
+          Search
+        </Button>
+      </FormSearch>
+    </>
+   
   );
 };

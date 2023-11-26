@@ -1,24 +1,25 @@
 import { Suspense } from "react";
 import { Outlet, NavLink } from "react-router-dom";
+import { Container, NavItem, NavList, Navigation, Header } from '../AppLayout/AppLayout.styled';
 
 export default function AppLayout () {
     return (
-    <div>
-      <header>
-        <nav>
-          <ul>
-            <li>
+    <Container>
+      <Header>
+        <Navigation>
+          <NavList>
+            <NavItem>
               <NavLink to='/'>Home</NavLink>
-            </li>
-            <li>
+            </NavItem>
+            <NavItem>
               <NavLink to='/movies'>Movies</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </header>
+            </NavItem>
+          </NavList>
+        </Navigation>
+      </Header>
       <Suspense fallback={<div>LOADING PAGE...</div>}> 
         <Outlet />
       </Suspense>
-    </div>
+    </Container>
     ) 
 }

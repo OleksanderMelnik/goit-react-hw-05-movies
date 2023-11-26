@@ -12,7 +12,7 @@ const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 
 export const App = () => {
   return (
-    <div>    
+    <>    
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
@@ -24,6 +24,6 @@ export const App = () => {
         </Route>     
       </Routes>
       <ToastContainer autoClose={1000} theme="light"/>
-    </div>
+    </>
   );
 };

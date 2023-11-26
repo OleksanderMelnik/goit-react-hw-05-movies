@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviewsMovie } from 'App/api';
+import { ListItem, StyledList, ReviewsDescr } from '../Reviews/Reviews.styled';
 
 export default function Reviews() {
     
@@ -19,16 +20,18 @@ export default function Reviews() {
     fetchReviewsMovie();
   }, [movieId]);
 
-  return (
-    <ul>
+  return reviews.length === 0 ? (
+    <h3>No Reviews</h3>
+  ) : (
+    <StyledList>
       {reviews.map(({ id, author, content }) => (
-        <li key={id}>
+        <ListItem key={id}>
           <p>
             <span>Author:</span> {author}
           </p>
-          <p>{content}</p>
-        </li>
+          <ReviewsDescr>{content}</ReviewsDescr>
+        </ListItem>
       ))}
-    </ul>
+    </StyledList>
   );
 };
